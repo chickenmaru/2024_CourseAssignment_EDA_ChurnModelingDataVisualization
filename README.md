@@ -72,7 +72,9 @@ p(y=1) = 1/(1 + exp(-(a1x1 + a2x2 + …… + c)))
 
 <img width="621" height="730" alt="image" src="https://github.com/user-attachments/assets/8bfee879-c797-4b2d-936b-b74eabb71eed" />
 
-### (5) To verify if it is correct, we need to use the Select Column tool to separately find the counts of True Positive, False Positive, True Negative, and False Negative. Among them, the total count of True Positive and True Negative represents the number of correct predictions by the model. As shown in the figure below, this model correctly predicted 38 out of the first 50 records.
+### (5) To verify if it is correct, we need to use the Select Column tool to separately find the counts of True Positive, False Positive, True Negative, and False Negative. 
+
+Among them, the total count of True Positive and True Negative represents the number of correct predictions by the model. As shown in the figure below, this model correctly predicted 38 out of the first 50 records.
 
 <img width="1037" height="254" alt="image" src="https://github.com/user-attachments/assets/9a663274-4665-4966-9623-09c1024c9d4a" />
 
