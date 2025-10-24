@@ -48,6 +48,48 @@ After selecting the attributes in the Continuize tool, set the original "use pre
 After the adjustments, you can use the Data Table to observe the data. The number of attributes should become 13, and Geography and Gender will each be split into two attributes due to one-hot encoding.
 <img width="1196" height="186" alt="image" src="https://github.com/user-attachments/assets/0e02f990-b8e0-4812-b1c9-56269d47d9e9" />
 
+## 3. Flowchart 2 (Model Prediction): Build a Logistic Regression model using all data, and use the model's coefficients to verify if the predictions for the first 50 records are correct.
+
+### (1) The first step is to first build the logistic regression model and generate a corresponding table. This table will show the coefficients for each attribute, which will be used in the subsequent formula.
+
+<img width="262" height="340" alt="image" src="https://github.com/user-attachments/assets/d2298ac9-5ddc-4433-b64f-007503d217c3" />
+
+### (2) Next, create a Data Sampler to select 50 records.
+<img width="273" height="511" alt="image" src="https://github.com/user-attachments/assets/87f7a936-953f-4b88-ae6c-84bd014370e7" />
+
+### (3) Next, define the formula, which must incorporate the following equation:
+p(y=1) = 1/(1 + exp(-(a1x1 + a2x2 + …… + c)))
+<img width="664" height="546" alt="image" src="https://github.com/user-attachments/assets/24e7c5ea-bded-4774-a820-3b7f1ad9661e" />
+
+### (4) Use the Data Table to print out the data.
+<img width="621" height="730" alt="image" src="https://github.com/user-attachments/assets/8bfee879-c797-4b2d-936b-b74eabb71eed" />
+
+### (5) To verify if it is correct, we need to use the Select Column tool to separately find the counts of True Positive, False Positive, True Negative, and False Negative. Among them, the total count of True Positive and True Negative represents the number of correct predictions by the model. As shown in the figure below, this model correctly predicted 38 out of the first 50 records.
+<img width="1037" height="254" alt="image" src="https://github.com/user-attachments/assets/9a663274-4665-4966-9623-09c1024c9d4a" />
+
+## 4. Flowchart 3 (Model Prediction): Using 10-fold cross-validation, find a set of SVM parameter combinations that can outperform the default Logistic Regression on CA. 
+
+Below is a table listing the tested SVM parameter combinations and their CA values, where the default Logistic Regression's CA value is 0.790.
+Initially, tune the Gamma value from small to large. After tuning a few times, it is found that with gamma at 0.1, the CA value can outperform the default Logistic Regression model.
+<img width="1068" height="350" alt="image" src="https://github.com/user-attachments/assets/3b90cb84-7bbe-4134-86aa-9988e2d08b0e" />
+
+<img width="1061" height="191" alt="image" src="https://github.com/user-attachments/assets/19030b40-93bc-41e5-b4f2-18a7e20fd78c" />
+
+## 5. Flowchart 3 (Visualization): Fix the kernel function, vary different C values, and plot a scatter plot of the relationship between C values and the number of support vectors.
+
+We can determine the number of Support Vectors by observing the instance count in the Data Table.
+Next, after fixing the kernel function (using RBF here, with Gamma value set to 1), use Create Table to input the number of Support Vectors corresponding to different C values. The created Table and Scatter plot are shown in the following two figures.
+
+<img width="1087" height="578" alt="image" src="https://github.com/user-attachments/assets/39c7b078-f47d-4558-ad91-5c8eb016040b" />
+
+
+
+
+
+
+
+
+
 
 
 
