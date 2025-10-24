@@ -1,8 +1,8 @@
 # 2024_CourseAssignment_EDA_ChurnModelingDataVisualization
 
-# Overview
+# 📘 Overview
 
-# Flow
+# ⚙️ Flow
 ## 1. Flowchart 1: Open Churn_Modelling.csv, examine the detailed attributes of the data, identify the attributes with missing values, and use box plots to illustrate their characteristics.
 
 | Attribute Name | Has Missing Values | Attribute Meaning | Attribute Characteristics from Box Plot |
