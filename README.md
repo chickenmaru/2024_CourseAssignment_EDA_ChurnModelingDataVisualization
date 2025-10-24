@@ -29,23 +29,28 @@ The data table generated after renaming in the CSV file is as follows:
 
 ### (2) Set the Role of CustomerId to meta, and change the Role of Churn to target 
 Use the Select Column tool to set CustomerId to meta, and Churn to target.
+
 <img width="617" height="647" alt="image" src="https://github.com/user-attachments/assets/c1df6ba4-d046-48f0-b034-086ffbbac731" />
 
 ### (3) Convert HasCrCard and IsActiveMember to numeric
 Use the Edit Domain tool to convert HasCrCard and IsActiveMember to numeric.
+
 <img width="951" height="419" alt="image" src="https://github.com/user-attachments/assets/ac40aae5-477c-4752-bc51-034c1c53fbbb" />
 
 
 ### (4) Impute all missing values using average/most frequent 
 Use the Impute tool to impute missing values using average/most frequent
+
 <img width="752" height="727" alt="image" src="https://github.com/user-attachments/assets/7e47cf55-220c-42da-b9ab-da70362fe740" />
 
 ### (5) Transform Geography and Gender using one-hot encoding 
 After selecting the attributes in the Continuize tool, set the original "use preset" to one-hot encoding.
+
 <img width="865" height="785" alt="image" src="https://github.com/user-attachments/assets/561b7dfc-c035-431a-9423-b595dcc300a8" />
 
 ### (6) Check the current data (number of attributes, data types, Role). 
 After the adjustments, you can use the Data Table to observe the data. The number of attributes should become 13, and Geography and Gender will each be split into two attributes due to one-hot encoding.
+
 <img width="1196" height="186" alt="image" src="https://github.com/user-attachments/assets/0e02f990-b8e0-4812-b1c9-56269d47d9e9" />
 
 ## 3. Flowchart 2 (Model Prediction): Build a Logistic Regression model using all data, and use the model's coefficients to verify if the predictions for the first 50 records are correct.
@@ -55,22 +60,27 @@ After the adjustments, you can use the Data Table to observe the data. The numbe
 <img width="262" height="340" alt="image" src="https://github.com/user-attachments/assets/d2298ac9-5ddc-4433-b64f-007503d217c3" />
 
 ### (2) Next, create a Data Sampler to select 50 records.
+
 <img width="273" height="511" alt="image" src="https://github.com/user-attachments/assets/87f7a936-953f-4b88-ae6c-84bd014370e7" />
 
 ### (3) Next, define the formula, which must incorporate the following equation:
 p(y=1) = 1/(1 + exp(-(a1x1 + a2x2 + …… + c)))
+
 <img width="664" height="546" alt="image" src="https://github.com/user-attachments/assets/24e7c5ea-bded-4774-a820-3b7f1ad9661e" />
 
 ### (4) Use the Data Table to print out the data.
+
 <img width="621" height="730" alt="image" src="https://github.com/user-attachments/assets/8bfee879-c797-4b2d-936b-b74eabb71eed" />
 
 ### (5) To verify if it is correct, we need to use the Select Column tool to separately find the counts of True Positive, False Positive, True Negative, and False Negative. Among them, the total count of True Positive and True Negative represents the number of correct predictions by the model. As shown in the figure below, this model correctly predicted 38 out of the first 50 records.
+
 <img width="1037" height="254" alt="image" src="https://github.com/user-attachments/assets/9a663274-4665-4966-9623-09c1024c9d4a" />
 
 ## 4. Flowchart 3 (Model Prediction): Using 10-fold cross-validation, find a set of SVM parameter combinations that can outperform the default Logistic Regression on CA. 
 
 Below is a table listing the tested SVM parameter combinations and their CA values, where the default Logistic Regression's CA value is 0.790.
 Initially, tune the Gamma value from small to large. After tuning a few times, it is found that with gamma at 0.1, the CA value can outperform the default Logistic Regression model.
+
 <img width="1068" height="350" alt="image" src="https://github.com/user-attachments/assets/3b90cb84-7bbe-4134-86aa-9988e2d08b0e" />
 
 <img width="1061" height="191" alt="image" src="https://github.com/user-attachments/assets/19030b40-93bc-41e5-b4f2-18a7e20fd78c" />
